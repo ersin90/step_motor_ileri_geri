@@ -1,0 +1,124 @@
+
+// ersin_arduino_step_motor_kontrol
+ 
+const int motorpin1 =  8;    
+const int motorpin2 =  9;     
+const int motorpin3 =  10;  
+const int motorpin4 =  11;  
+int hiz = 5 ;
+#include <TimerOne.h>
+
+void ileri()
+{
+
+
+  ////////////////ileri dönüş//////////////////////////
+  // 1010
+digitalWrite(motorpin1,HIGH);
+digitalWrite(motorpin2,LOW);
+digitalWrite(motorpin3,HIGH);
+digitalWrite(motorpin4,LOW);
+delay(hiz);
+// 0110
+digitalWrite(motorpin1,LOW);
+digitalWrite(motorpin2,HIGH);
+digitalWrite(motorpin3,HIGH);
+digitalWrite(motorpin4,LOW);
+delay(hiz);
+//// 0101
+digitalWrite(motorpin1,LOW);
+digitalWrite(motorpin2,HIGH);
+digitalWrite(motorpin3,LOW);
+digitalWrite(motorpin4,HIGH);
+delay(hiz);
+//// 1001
+digitalWrite(motorpin1,HIGH);
+digitalWrite(motorpin2,LOW);
+digitalWrite(motorpin3,LOW);
+digitalWrite(motorpin4,HIGH);
+//
+delay(hiz);
+
+  }
+
+
+void geri()
+{
+ 
+///////////////////////////////////geri dönüş///////////////////////////////////////////////////
+// 0110
+digitalWrite(motorpin1,LOW);
+digitalWrite(motorpin2,HIGH);
+digitalWrite(motorpin3,HIGH);
+digitalWrite(motorpin4,LOW);
+delay(hiz);
+// 1010
+digitalWrite(motorpin1,HIGH);
+digitalWrite(motorpin2,LOW);
+digitalWrite(motorpin3,HIGH);
+digitalWrite(motorpin4,LOW);
+delay(hiz);
+//// 1001
+digitalWrite(motorpin1,HIGH);
+digitalWrite(motorpin2,LOW);
+digitalWrite(motorpin3,LOW);
+digitalWrite(motorpin4,HIGH);
+//
+delay(hiz);
+//// 0101
+digitalWrite(motorpin1,LOW);
+digitalWrite(motorpin2,HIGH);
+digitalWrite(motorpin3,LOW);
+digitalWrite(motorpin4,HIGH);
+delay(hiz);
+
+  }
+
+
+void setup() {
+  // put your setup code here, to run once:
+
+  pinMode(motorpin1,OUTPUT) ;
+  pinMode(motorpin2,OUTPUT) ;
+  pinMode(motorpin3,OUTPUT) ;
+  pinMode(motorpin4,OUTPUT) ;
+ //Timer1.initialize(15000000); // timer 1.5 saniye calisir
+}
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  
+while(1){
+for(int i=0 ; i <=20 ; i++ )
+{
+if(i < 10)
+  {
+
+   ileri();
+    }
+else if (i > 10)
+  {
+
+   geri();
+    }
+  }
+
+}
+/*delay(5000);
+digitalWrite(motorpin1,LOW);
+digitalWrite(motorpin2,LOW);
+digitalWrite(motorpin3,LOW);
+digitalWrite(motorpin4,LOW);
+delay(5);
+
+  // ileri();
+//geri();
+//delay(5000);   */
+
+}
+
+
+
+
+
